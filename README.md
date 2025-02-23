@@ -1,9 +1,11 @@
 # 💫 About Me:
-🔭Data Science and Machine learning<br>
+-🔭Data Science and Machine learning<br>
 
-👯TensorFlow | Sci-kit learn | PyTorch<br>
+-👯TensorFlow | Sci-kit learn | PyTorch<br>
 
-🌏Contibuting to open source <br>
+-🌏Contibuting to open source <br>
+
+-🖥 Python | Java | SQL <br>
 
 
 ## 🌐 Socials:
