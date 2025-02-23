@@ -1,5 +1,5 @@
 # 💫 About Me:
--🔭Data Science and Machine learning<br>
+-🔭Data Science and Machine Learning <br>
 
 -👯TensorFlow | Sci-kit learn | PyTorch<br>
 
