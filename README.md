@@ -1,9 +1,9 @@
 # 💫 About Me:
-🔭 Working on Machine learning and Natural Language Processing <br>
+🔭Data Science and Machine learning<br>
 
-👯Open for open Source Contribution<br>
+👯TensorFlow | Sci-kit learn | PyTorch<br>
 
-🌱 I’m currently learning Data Science<br>
+🌏Contibuting to open source <br>
 
 
 ## 🌐 Socials:
