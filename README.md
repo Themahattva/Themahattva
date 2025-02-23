@@ -1,6 +1,8 @@
 # 💫 About Me:
 🔭 I’m currently working on Machine learning and Natural Language Processing <br>
+
 👯Open for open Source Contribution<br>
+
 🌱 I’m currently learning Data Science<br>
 
 
