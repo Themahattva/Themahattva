@@ -5,7 +5,7 @@
 
 -🌏Contibuting to open source <br>
 
--🖥 Python | Java | SQL <br>
+-🖥 Python | Java | SQL | <br>
 
 
 ## 🌐 Socials:
