@@ -24,26 +24,41 @@ OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "source-pre
 
 LINE_WEIGHT = 0.6     # how hard drawn lines are pushed toward black
 
-# 1. cut out the subject
-cut = remove(Image.open(INP).convert("RGBA"))
+# 1. cut out the subject (skip rembg if image already has transparent alpha)
+img_orig = Image.open(INP)
+if img_orig.mode in ("RGBA", "LA") or (img_orig.mode == "P" and "transparency" in img_orig.info):
+    cut = img_orig.convert("RGBA")
+    alpha_test = np.array(cut.split()[-1])
+    if np.mean(alpha_test < 20) < 0.05:  # almost fully opaque, need cutout
+        cut = remove(cut)
+else:
+    cut = remove(img_orig.convert("RGBA"))
+
 rgb = np.array(cut.convert("RGB"))
 alpha = np.array(cut.split()[-1])                 # 0 = background
 gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
 
-# 2. smooth texture, keep edges
+# 2. smooth texture, keep edges (only if not already flat graphic)
 smooth = gray
-for _ in range(3):
-    smooth = cv2.bilateralFilter(smooth, 9, 40, 9)
+if len(np.unique(gray[alpha > 128])) > 30:
+    for _ in range(3):
+        smooth = cv2.bilateralFilter(smooth, 9, 40, 9)
 
 # 3. tone stretch over the subject only
 lo, hi = np.percentile(smooth[alpha > 128], [2, 92])
-tone = np.clip((smooth.astype(np.float32) - lo) / (hi - lo), 0, 1)
+if hi > lo:
+    tone = np.clip((smooth.astype(np.float32) - lo) / (hi - lo), 0, 1)
+else:
+    tone = np.zeros_like(smooth, dtype=np.float32)
 
-# 4. dark-on-light ridges -> darken
-fine = cv2.GaussianBlur(smooth, (0, 0), 1.5).astype(np.float32)
-coarse = cv2.GaussianBlur(smooth, (0, 0), 6).astype(np.float32)
-lines = np.clip((coarse - fine) / 40.0, 0, 1)
-out = np.clip(tone - LINE_WEIGHT * lines, 0, 1) * 255
+# 4. dark-on-light ridges -> darken (skip for solid silhouettes)
+if len(np.unique(gray[alpha > 128])) > 30:
+    fine = cv2.GaussianBlur(smooth, (0, 0), 1.5).astype(np.float32)
+    coarse = cv2.GaussianBlur(smooth, (0, 0), 6).astype(np.float32)
+    lines = np.clip((coarse - fine) / 40.0, 0, 1)
+    out = np.clip(tone - LINE_WEIGHT * lines, 0, 1) * 255
+else:
+    out = tone * 255.0
 
 # 5. paste onto white (feathered a hair to avoid a halo), square crop
 mask = cv2.GaussianBlur(alpha.astype(np.float32) / 255.0, (0, 0), 1.0)
