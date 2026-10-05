@@ -10,6 +10,14 @@
 <br>
 <br>
 
+<!-- animated horizontal terminal ASCII banner: WELCOME TO THE HOOD -->
+<h3><code>mahattva@github ~ $ ./welcome.sh</code></h3>
+
+<img src="./welcome-banner.svg" width="860" alt="WELCOME TO THE HOOD — animated terminal banner" />
+
+<br>
+<br>
+
 <!-- ascii portrait (left) + streak/numbers card (right). both svgs are
      840x880 so equal widths give equal heights.
      portrait: python scripts/prep_photo.py <dp.png> && python scripts/make_ascii_svg.py
