@@ -150,4 +150,7 @@ parts.append("</svg>")
 svg = "".join(parts)
 with open(OUT, "w") as f:
     f.write(svg)
-print("wrote", OUT, len(svg), "bytes;", CANVAS_W, "x", CANVAS_H)
+batman_out = os.path.join(HERE, "..", "batman-ascii.svg")
+with open(batman_out, "w") as f:
+    f.write(svg)
+print("wrote", OUT, "and", batman_out, len(svg), "bytes;", CANVAS_W, "x", CANVAS_H)

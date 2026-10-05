@@ -19,7 +19,7 @@
 
 <table>
 <tr>
-<td valign="top"><img src="./mahattva-ascii.svg" width="420" alt="Mahattva Sahu — ASCII portrait" /></td>
+<td valign="top"><img src="./batman-ascii.svg" width="420" alt="Mahattva Sahu — ASCII portrait" /></td>
 <td valign="top"><img src="./stats.svg" width="420" alt="Mahattva's GitHub streak and contribution stats — auto-refreshed daily" /></td>
 </tr>
 </table>
