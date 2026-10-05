@@ -51,8 +51,8 @@ BG = "#0d1117"
 BG2 = "#111722"
 FRAME = "#30363d"
 TITLE_TEXT = "#7d8590"
-INK = "#c9d1d9"      # the single ascii color (matches Andrew6rant)
-CURSOR = "#c9d1d9"
+INK = "#00ff66"      # Terminator phosphor green
+CURSOR = "#00ff66"
 
 # ---- reveal timing (one-shot; a cursor rasters top -> bottom) -------------
 ROW_DUR = 5.8 / ROWS  # whole portrait prints in ~6s at any resolution
@@ -153,4 +153,7 @@ with open(OUT, "w") as f:
 batman_out = os.path.join(HERE, "..", "batman-ascii.svg")
 with open(batman_out, "w") as f:
     f.write(svg)
-print("wrote", OUT, "and", batman_out, len(svg), "bytes;", CANVAS_W, "x", CANVAS_H)
+green_out = os.path.join(HERE, "..", "batman-green.svg")
+with open(green_out, "w") as f:
+    f.write(svg)
+print("wrote", OUT, "and", batman_out, "and", green_out, len(svg), "bytes;", CANVAS_W, "x", CANVAS_H)
