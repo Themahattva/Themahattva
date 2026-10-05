@@ -1,5 +1,5 @@
 # 💫 About Me:
-# 💫 About Me:<br>-🔭Data Science and Machine Learning <br><br><br>-👯TensorFlow | Sci-kit learn | PyTorch<br><br><br>-🌏Contibuting to open source <br><br><br>-🖥 Python | Java | Kotlin | Flutter  <br>
+01001000 01101001 00100000 01001101 01111001 00100000 01101110 01100001 01101101 01100101 00100000 01101001 01110011 00100000 01001101 01100001 01101000 01100001 01110100 01110100 01100001 01110110 01100001 00100000  <br>
 
 
 ## 🌐 Socials:
